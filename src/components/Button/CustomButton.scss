@@ -1,0 +1,32 @@
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &-default {
+    background: #e0e0e0;
+    color: #333;
+  }
+  &-primary {
+    background: #067bc2;
+    color: white;
+  }
+  &-secondary {
+    background: #f37748;
+    color: white;
+  }
+  &-small {
+    font-size: 0.75rem;
+  }
+  &-medium {
+    font-size: 1rem;
+  }
+  &-large {
+    font-size: 1.25rem;
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
