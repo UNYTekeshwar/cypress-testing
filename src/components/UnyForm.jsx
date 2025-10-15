@@ -1,17 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Input, Button, FormRow, FormControl, Group } from "unygc";
 import { useNavigate } from "react-router-dom";
 import "unygc/style";
+
+import axios  from "axios";
+
 const UnyForm = () => {
   const navigate = useNavigate();
   const handleFinish = () => {
-    console.log("Form submitted successfully:", { username, email, password });
     navigate("/users");
   };
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+   try {
+          const response = await axios.post(
+        "https://api.employees.curiousrubik.com/api/login",
+        {
+          email: "test@example.com",
+          password: "password123",
+          type: "password"
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            // "Authorization": `Bearer ${token}` // if needed
+          },
+          // withCredentials: true, // enable if server uses cookies
+          timeout: 10000,
+        }
+      );
+
+      console.log("Login successful:", response);
+   }catch (error) {
+     console.error("Login error:", error);
+   }
+  }
+
+  useEffect(() => {   
+    handleLogin();
+  }, []);
 
   return (
     <>
