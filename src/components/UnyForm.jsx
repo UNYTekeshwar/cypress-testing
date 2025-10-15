@@ -17,18 +17,13 @@ const UnyForm = () => {
 
   const handleLogin = async () => {
    try {
-          const response = await axios.post(
-        "https://api.employees.curiousrubik.com/api/login",
+          const response = await axios.get(
+        "https://proxy.curiousrubik.com/get-user",
         {
-          email: "test@example.com",
-          password: "password123",
-          type: "password"
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            // "Authorization": `Bearer ${token}` // if needed
-          },
+          // headers: {
+          //   "Content-Type": "application/json",
+          //   // "Authorization": `Bearer ${token}` // if needed
+          // },
           // withCredentials: true, // enable if server uses cookies
           timeout: 10000,
         }
