@@ -3,7 +3,7 @@ import { Form, Input, Button, FormRow, FormControl, Group } from "unygc";
 import { useNavigate } from "react-router-dom";
 import "unygc/style";
 
-import axios  from "axios";
+import axios from "axios";
 
 const UnyForm = () => {
   const navigate = useNavigate();
@@ -16,31 +16,26 @@ const UnyForm = () => {
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-   try {
-          const response = await axios.get(
+    try {
+      const response = await axios.get(
         "https://proxy.curiousrubik.com/get-user",
-        {
-          // headers: {
-          //   "Content-Type": "application/json",
-          //   // "Authorization": `Bearer ${token}` // if needed
-          // },
-          // withCredentials: true, // enable if server uses cookies
-          timeout: 10000,
-        }
       );
-///testgit 
+      ///testgit
       console.log("Login successful:", response);
-   }catch (error) {
-     console.error("Login error:", error);
-   }
-  }
+    } catch (error) {
+      console.error("Login error:", error);
+    }
+  };
 
-  useEffect(() => {   
-    handleLogin();
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <>
+      <>
+        <Button type="submit" className="btn-submit" onClick={() => handleLogin()}>
+          GET USER
+        </Button>
+      </>
       <Form id="createForm">
         <Group title="Form With Side label" styleType="style1">
           <FormRow cols={1} fieldAlign="side">
